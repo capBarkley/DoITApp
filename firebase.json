@@ -16,5 +16,11 @@
         "destination": "/index.html"
       }
     ]
+    /*
+    "rewrites": [ {
+      "source": "/getUserData",
+      "function": "getUserData"
+    } ]
+    */
   }
 }
