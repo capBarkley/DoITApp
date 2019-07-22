@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>After Sign In</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/6.3.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/6.3.1/firebase-auth.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+</head>
+<body>
+    <h1>You have Signed In</h1>
+    <h2>Youe data</h2>
+    <table>
+        <tbody>
+            <tr>
+                <th>provider id</th><td id="providerId"></td>
+            </tr>
+            <tr>
+                <th>uid</th><td id="uid"></td>
+            </tr>
+            <tr>
+                <th>token</th><td id="token"></td>
+            </tr>
+            <tr>
+                <th>display name</th><td id="displayName"></td>
+            </tr>
+            <tr>
+                <th>email</th><td id="email"></td>
+            </tr>
+            <tr>
+                <th>first name</th><td id="firstName"></td>
+            </tr>
+            <tr>
+                <th>last name</th><td id="lastName"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        //Get elements
+        const providerId = document.querySelector("#providerId");
+        const uid = document.querySelector("#uid");
+        const token = document.querySelector("#token");
+        const displayName = document.querySelector("#displayName");
+        const email = document.querySelector("#email");
+        const firstName = document.querySelector("#firstName");
+        const lastName = document.querySelector("#lastName");
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let user = firebase.auth().currentUser;
+
+            if (user != null) {
+            user.providerData.forEach(function (profile) {
+                console.log("Sign-in provider: " + profile.providerId);
+                console.log("  Provider-specific UID: " + profile.uid);
+                console.log("  Name: " + profile.displayName);
+                console.log("  Email: " + profile.email);
+                console.log("  Photo URL: " + profile.photoURL);
+            });
+            } else {
+                console.log("User is Null!")
+            }
+        });
+    </script>
+</body>
+</html>
