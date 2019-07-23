@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "do-it-app-1b4c7"
+    "default": "do-it-app-1b4c7",
+    "doitapp": "do-it-app-1b4c7"
   }
 }
